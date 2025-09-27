@@ -219,6 +219,7 @@
             border-radius: 5px;
             overflow: hidden;
             background-color: #fdfdfd;
+            margin-bottom: 30px;
         }
         
         .graph-info {
@@ -265,6 +266,62 @@
             color: var(--accent-color);
             margin-bottom: 10px;
         }
+
+        /* 知识库主题分类卡片样式 */
+        .knowledge-topics {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .topic-card {
+            flex: 1;
+            min-width: 250px;
+            background-color: var(--card-bg);
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .topic-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+
+        .topic-card h3 {
+            color: var(--accent-color);
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .topic-card h3 i {
+            margin-right: 10px;
+        }
+
+        .topic-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .topic-card li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .topic-card li a {
+            color: var(--text-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .topic-card li a:hover {
+            color: var(--accent-color);
+            text-decoration: underline;
+        }
         
         footer {
             background: #333;
@@ -303,14 +360,13 @@
                     <i class="fas fa-microchip"></i>
                 </div>
                 <h1>MCS51单片机智慧教学平台</h1>
-                <p class="subtitle">洛阳理工学院 电子信息学院出品</p>
+                <p class="subtitle">洛阳理工学院 电子信息学院出品 | 建议反馈: limeng@lit.edu.cn</p>
             </div>
         </header>
         
         <section class="knowledge-section">
             <h2 class="section-title">
                 MCS51单片机知识图谱
-                <span>交互式可视化知识网络 - 包含Proteus与Keil C51内容</span>
             </h2>
             
             <div class="controls">
@@ -372,8 +428,62 @@
             <h2 class="section-title">知识库主题分类</h2>
             
             <div class="knowledge-topics">
-                <!-- 原始HTML中的主题卡片部分可以在这里保留或扩展 -->
-                <!-- 为了保持简洁，此处省略，重点在知识图谱功能 -->
+                <!-- 原始知识分类 -->
+                <div class="topic-card">
+                    <h3><i class="fas fa-microchip"></i> 硬件基础模块</h3>
+                    <ul>
+                         <li><a href="#basic">基础概念</a></li>
+                         <li><a href="#memory">存储器系统</a></li>
+                         <li><a href="#io">I/O端口</a></li>
+                         <li><a href="#interrupt">中断系统</a></li>
+                         <li><a href="#timer">定时器/计数器</a></li>
+                         <li><a href="#serial">串行通信</a></li>
+                    </ul>
+                </div>
+                
+                <div class="topic-card">
+                    <h3><i class="fas fa-code"></i> 软件编程模块</h3>
+                    <ul>
+                        <li><a href="#instruction">指令系统</a></li>
+                        <li><a href="#c51">C51程序设计</a></li>
+                        <li><a href="#addressing">寻址方式</a></li>
+                        <li><a href="#data_types">数据类型</a></li>
+                    </ul>
+                </div>
+                
+                <div class="topic-card">
+                    <h3><i class="fas fa-tools"></i> 开发工具链</h3>
+                    <ul>
+                        <li><a href="#keil">Keil开发环境</a></li>
+                        <li><a href="#proteus">Proteus仿真</a></li>
+                        <li><a href="https://www.keil.com/demo/eval/c51.htm">Keil C51 下载</a></li>
+                        <li><a href="http://www.labcenter.com/downloads/">Proteus 下载</a></li>
+                    </ul>
+                </div>
+
+                <div class="topic-card">
+                    <h3><i class="fas fa-flask"></i> 实验项目</h3>
+                    <ul>
+                        <li><a href="#exp1">实验1: LED流水灯</a></li>
+                        <li><a href="#exp2">实验2: 数码管计数显示</a></li>
+                        <li><a href="#exp3">实验3: 文献检索与综述</a></li>
+                        <li><a href="#exp4">实验4: 电子秒表显示器</a></li>
+                        <li><a href="#exp5">实验5: 电子表LCD显示</a></li>
+                        <li><a href="#exp6">实验6: 18B20温度检测</a></li>
+                        <li><a href="#exp7">实验7: 直流数字电压表</a></li>
+                        <li><a href="#exp8">实验8: 双机串行通信</a></li>
+                    </ul>
+                </div>
+
+                 <div class="topic-card">
+                    <h3><i class="fas fa-project-diagram"></i> 综合应用</h3>
+                    <ul>
+                        <li><a href="#proj1">项目1: 智能交通灯</a></li>
+                         <li><a href="#proj2">项目2: 综合应用系统</a></li>
+                         <li><a href="#design">系统设计</a></li>
+                         <li><a href="#interface">接口技术</a></li>
+                    </ul>
+                </div>
             </div>
         </section>
         
@@ -485,30 +595,6 @@
                 { id: "interrupt_functions", name: "中断函数", category: "software", level: 2 },
                 { id: "pointers", name: "指针", category: "software", level: 2 },
                 { id: "code_optimization", name: "代码优化", category: "software", level: 2 },
-                { id: "c51_keywords", name: "C51关键字", category: "software", level: 3 },
-                { id: "bit_variables", name: "位变量", category: "software", level: 3 },
-                { id: "memory_models", name: "存储模式", category: "software", level: 3 },
-                
-                // Proteus仿真子节点
-                { id: "proteus_basics", name: "Proteus基础", category: "tool", level: 2 },
-                { id: "component_library", name: "元件库", category: "tool", level: 2 },
-                { id: "circuit_design", name: "电路设计", category: "tool", level: 2 },
-                { id: "mcu_model", name: "单片机模型", category: "tool", level: 2 },
-                { id: "virtual_instruments", name: "虚拟仪器", category: "tool", level: 2 },
-                { id: "debugging", name: "调试", category: "tool", level: 2 },
-                { id: "co_simulation", name: "协同仿真", category: "tool", level: 2 },
-                { id: "proteus_isis", name: "ISIS原理图设计", category: "tool", level: 3 },
-                { id: "proteus_ares", name: "ARES PCB设计", category: "tool", level: 3 },
-                
-                // Keil开发环境子节点
-                { id: "keil_basics", name: "Keil基础", category: "tool", level: 2 },
-                { id: "project_management", name: "项目管理", category: "tool", level: 2 },
-                { id: "compiler", name: "编译器", category: "tool", level: 2 },
-                { id: "debugger", name: "调试器", category: "tool", level: 2 },
-                { id: "simulator", name: "模拟器", category: "tool", level: 2 },
-                { id: "target_options", name: "目标选项", category: "tool", level: 2 },
-                { id: "keil_uvision", name: "μVision IDE", category: "tool", level: 3 },
-                { id: "build_config", name: "构建配置", category: "tool", level: 3 },
                 
                 // 应用子节点
                 { id: "minimal", name: "最小系统", category: "application", level: 2 },
@@ -524,16 +610,6 @@
                 { id: "motor", name: "电机控制", category: "application", level: 3 },
                 { id: "temp", name: "温度检测", category: "application", level: 3 },
                 { id: "pwm", name: "PWM输出", category: "application", level: 3 },
-                { id: "uart", name: "串口通信", category: "application", level: 3 },
-                
-                // 开发流程节点
-                { id: "requirement_analysis", name: "需求分析", category: "application", level: 2 },
-                { id: "hardware_design", name: "硬件设计", category: "application", level: 2 },
-                { id: "software_design", name: "软件设计", category: "application", level: 2 },
-                { id: "coding", name: "编码实现", category: "application", level: 2 },
-                { id: "simulation_test", name: "仿真测试", category: "application", level: 2 },
-                { id: "hardware_test", name: "硬件测试", category: "application", level: 2 },
-                { id: "documentation", name: "文档编写", category: "application", level: 2 },
                 
                 // 新增实验相关节点
                 { id: "led_display", name: "LED显示", category: "hardware", level: 3 },
@@ -645,12 +721,6 @@
                 // 项目2: 综合应用系统关联
                 { source: "proj2", target: "application" },
                 { source: "proj2", target: "design" },
-                { source: "proj2", target: "requirement_analysis" },
-                { source: "proj2", target: "hardware_design" },
-                { source: "proj2", target: "software_design" },
-                { source: "proj2", target: "coding" },
-                { source: "proj2", target: "simulation_test" },
-                { source: "proj2", target: "hardware_test" },
                 
                 // 基础概念子关联
                 { source: "basic", target: "architecture" },
@@ -725,43 +795,12 @@
                 { source: "c51", target: "interrupt_functions" },
                 { source: "c51", target: "pointers" },
                 { source: "c51", target: "code_optimization" },
-                { source: "c51_basics", target: "c51_keywords" },
-                { source: "c51_basics", target: "bit_variables" },
-                { source: "c51_basics", target: "memory_models" },
-
-                // Proteus仿真子关联
-                { source: "proteus", target: "proteus_basics" },
-                { source: "proteus", target: "component_library" },
-                { source: "proteus", target: "circuit_design" },
-                { source: "proteus", target: "mcu_model" },
-                { source: "proteus", target: "virtual_instruments" },
-                { source: "proteus", target: "debugging" },
-                { source: "proteus", target: "co_simulation" },
-                { source: "proteus_basics", target: "proteus_isis" },
-                { source: "proteus_basics", target: "proteus_ares" },
-
-                // Keil开发环境子关联
-                { source: "keil", target: "keil_basics" },
-                { source: "keil", target: "project_management" },
-                { source: "keil", target: "compiler" },
-                { source: "keil", target: "debugger" },
-                { source: "keil", target: "simulator" },
-                { source: "keil", target: "target_options" },
-                { source: "keil_basics", target: "keil_uvision" },
-                { source: "keil_basics", target: "build_config" },
 
                 // 应用子关联
                 { source: "application", target: "minimal" },
                 { source: "application", target: "external" },
                 { source: "application", target: "interface" },
                 { source: "application", target: "design" },
-                { source: "application", target: "requirement_analysis" },
-                { source: "application", target: "hardware_design" },
-                { source: "application", target: "software_design" },
-                { source: "application", target: "coding" },
-                { source: "application", target: "simulation_test" },
-                { source: "application", target: "hardware_test" },
-                { source: "application", target: "documentation" },
                 { source: "interface", target: "led" },
                 { source: "interface", target: "keyboard" },
                 { source: "interface", target: "display" },
@@ -769,7 +808,6 @@
                 { source: "interface", target: "motor" },
                 { source: "interface", target: "temp" },
                 { source: "interface", target: "pwm" },
-                { source: "interface", target: "uart" },
                 { source: "display", target: "led_display" },
                 { source: "display", target: "seven_segment" },
                 { source: "display", target: "lcd1602" },
@@ -1066,8 +1104,10 @@
 
         const svg = d3.select("#knowledge-graph")
             .append("svg")
-            .attr("width", width)
-            .attr("height", height);
+            .attr("width", "100%")
+            .attr("height", "100%")
+            .attr("viewBox", `0 0 ${width} ${height}`)
+            .attr("preserveAspectRatio", "xMidYMid meet");
 
         const g = svg.append("g");
 
